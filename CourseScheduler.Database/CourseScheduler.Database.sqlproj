@@ -61,6 +61,7 @@
     <Folder Include="Properties" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="ReferenceData" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\DEPARTMENT.sql" />
@@ -69,5 +70,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CourseScheduler.Database.publish.xml" />
+    <None Include="ReferenceData\DEPARTMENT.DATA.sql" />
+    <None Include="ReferenceData\DEPARTMENT.MERGE.DATA.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="ReferenceData\Script.PostDeployment1.sql" />
   </ItemGroup>
 </Project>
