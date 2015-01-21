@@ -1,0 +1,11 @@
+﻿@model IEnumerable<CourseScheduler.Data.Course>
+@{
+    ViewBag.Title = "CourseListing";
+}
+
+<h2>Course Listing</h2>
+
+@foreach (var course in Model)
+{
+    <div>@course.Name</div>
+}

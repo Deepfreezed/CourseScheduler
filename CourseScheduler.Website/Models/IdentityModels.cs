@@ -21,7 +21,7 @@ namespace CourseScheduler.Website.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("ASPNETConnection", throwIfV1Schema: false)
         {
         }
 

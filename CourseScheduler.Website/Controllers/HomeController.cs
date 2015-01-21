@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CourseScheduler.Data;
 using CourseScheduler.Website.Models;
 using CourseScheduler.Website.Services;
 
 namespace CourseScheduler.Website.Controllers
 {
-	[RequireHttps]
+	//[RequireHttps]
 	public class HomeController : Controller
 	{
 		private IMailService _mail;
+		private ICourseSchedulerRepository _repo;
 
-		public HomeController(IMailService mail)
+		public HomeController(IMailService mail, ICourseSchedulerRepository repo)
 		{
 			_mail = mail;
+			_repo = repo;
 		}
 
 		public ActionResult Index()
@@ -56,10 +59,15 @@ namespace CourseScheduler.Website.Controllers
 			return View();
 		}
 
-		[Authorize]
-		public ActionResult MyMessages()
+		//[Authorize]
+		public ActionResult CourseListing()
 		{
-			return View();
+			var courses = _repo.GetCourses()
+				.OrderByDescending(c => c.Id)
+				.Take(25)
+				.ToList();
+
+			return View(courses);
 		}
 
 		[Authorize(Roles="Admin")]
