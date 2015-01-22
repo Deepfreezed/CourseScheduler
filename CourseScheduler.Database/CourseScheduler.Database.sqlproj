@@ -68,15 +68,45 @@
     <Build Include="dbo\Tables\COURSE_OFFERING.sql" />
     <Build Include="dbo\Tables\COURSE.sql" />
     <Build Include="dbo\Tables\COMPANY.sql" />
-    <Build Include="dbo\Tables\JOB.sql" />
     <Build Include="dbo\Tables\PROGRAM.sql" />
     <Build Include="dbo\Tables\SUB_PROGRAM_IDENTIFIER.sql" />
     <Build Include="dbo\Tables\SUB_PROGRAM.sql" />
+    <Build Include="dbo\Tables\COURSE_SUB_PROGRAM.sql" />
+    <Build Include="dbo\Tables\CLUSTER_SUB_PROGRAM.sql" />
+    <Build Include="dbo\Tables\COURSE_CLUSTER_SUB_PROGRAM.sql" />
+    <Build Include="dbo\Tables\OPTIONAL_CLUSTER_SUB_PROGRAM.sql" />
+    <Build Include="dbo\Tables\COURSE_OPTION_CLUSTER_SUB_PROG.sql" />
+    <Build Include="dbo\Tables\TEACHER.sql" />
+    <Build Include="dbo\Tables\CERTIFICATION.sql" />
+    <Build Include="dbo\Tables\PREREQUISITE.sql" />
+    <Build Include="dbo\Tables\GOAL_AREA.sql" />
+    <Build Include="dbo\Tables\GEN_ED_COURSE.sql" />
+    <Build Include="dbo\Tables\PROG_DETAIL.sql" />
+    <Build Include="dbo\Tables\COURSE_MULTI_CREDIT.sql" />
+    <Build Include="dbo\Tables\PROG_NAME_HIST.sql" />
+    <Build Include="dbo\Tables\CONCURENT_COURSE.sql" />
+    <Build Include="dbo\Tables\COURSE_CHG_HIST.sql" />
+    <Build Include="dbo\Tables\DEPT_NAME_HIST.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CourseScheduler.Database.publish.xml" />
     <None Include="ReferenceData\DEPARTMENT.DATA.sql" />
     <None Include="ReferenceData\DEPARTMENT.MERGE.DATA.sql" />
+    <None Include="ReferenceData\NON_CLUSTERED_INDEXES.sql" />
+    <None Include="ReferenceData\COURSE_OFFERING.MERGE.DATA.sql" />
+    <None Include="ReferenceData\COURSE.MERGE.DATA.sql" />
+    <None Include="ReferenceData\PROGRAM.MERGE.DATA.sql" />
+    <None Include="ReferenceData\SUB_PROGRAM_IDENTIFIER.MERGE.DATA.sql" />
+    <None Include="ReferenceData\SUB_PROGRAM.MERGE.DATA.sql" />
+    <None Include="ReferenceData\COURSE_SUB_PROGRAM.MERGE.DATA.sql" />
+    <None Include="ReferenceData\CLUSTER_SUB_PROGRAM.MERGE.DATA.sql" />
+    <None Include="ReferenceData\COURSE_CLUSTER_SUB_PROGRAM.MERGE.DATA.sql" />
+    <None Include="ReferenceData\OPTIONAL_CLUSTER_SUB_PROGRAM.MERGE.DATA.sql" />
+    <None Include="ReferenceData\COURSE_OPTION_CLUSTER_SUB_PROG.MERGE.DATA.sql" />
+    <None Include="ReferenceData\PREREQUISITE.MERGE.DATA.sql" />
+    <None Include="ReferenceData\GOAL_AREA.MERGE.DATA.sql" />
+    <None Include="ReferenceData\GEN_ED_COURSE.MERGE.DATA.sql" />
+    <None Include="ReferenceData\TEACHER.MERGE.DATA.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="ReferenceData\Script.PostDeployment1.sql" />

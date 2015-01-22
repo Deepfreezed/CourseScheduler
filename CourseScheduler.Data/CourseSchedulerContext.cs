@@ -13,15 +13,15 @@ namespace CourseScheduler.Data
 		{
 			#region Migration
 
-			//Turn off lazy loading if you are going to serialize objects
-			this.Configuration.LazyLoadingEnabled = false;
+			////Turn off lazy loading if you are going to serialize objects
+			//this.Configuration.LazyLoadingEnabled = false;
 
-			//causes issues with serialization
-			this.Configuration.ProxyCreationEnabled = false;
+			////causes issues with serialization
+			//this.Configuration.ProxyCreationEnabled = false;
 
-			Database.SetInitializer(
-				new MigrateDatabaseToLatestVersion<CourseSchedulerContext, CourseSchedulerMigrationsConfiguration>()
-			);
+			//Database.SetInitializer(
+			//	new MigrateDatabaseToLatestVersion<CourseSchedulerContext, CourseSchedulerMigrationsConfiguration>()
+			//);
 
 			#endregion
 		}
