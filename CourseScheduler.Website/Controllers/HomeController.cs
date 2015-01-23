@@ -63,7 +63,7 @@ namespace CourseScheduler.Website.Controllers
 		public ActionResult CourseListing()
 		{
 			var courses = _repo.GetCourses()
-				.OrderByDescending(c => c.Id)
+				.OrderByDescending(c => c.CourseNum)
 				.Take(25)
 				.ToList();
 

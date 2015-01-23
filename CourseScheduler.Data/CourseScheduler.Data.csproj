@@ -37,6 +37,7 @@
       <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,17 +47,124 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Course.cs" />
-    <Compile Include="CourseSchedulerContext.cs" />
-    <Compile Include="CourseSchedulerMigrationsConfiguration.cs" />
-    <Compile Include="CourseSchedulerRepository.cs" />
-    <Compile Include="Department.cs" />
-    <Compile Include="ICourseSchedulerRepository.cs" />
+    <Compile Include="Context\CourseSchedulerContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CourseSchedulerContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Certification.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ClusterSubProgram.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Company.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ConcurentCourse.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Course.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CourseChgHist.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CourseClusterSubProgram.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CourseMultiCredit.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CourseOffering.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CourseOptionClusterSubProg.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CourseSchedulerEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CourseSubProgram.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Department.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DeptNameHist.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GenEdCourse.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GoalArea.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Job.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\OptionalClusterSubProgram.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Prerequisite.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProgDetail.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProgNameHist.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Program.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SubProgram.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SubProgramIdentifier.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Teacher.cs">
+      <DependentUpon>CourseSchedulerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\CourseSchedulerMapping.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CourseSchedulerMapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\CourseSchedulerRepository.cs" />
+    <Compile Include="Repository\ICourseSchedulerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Context\CourseSchedulerContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CourseSchedulerContext.cs</LastGenOutput>
+    </None>
+    <None Include="Context\EF.Reverse.POCO.Core.ttinclude" />
+    <None Include="Context\EF.Reverse.POCO.ttinclude" />
+    <None Include="Entities\CourseSchedulerEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CourseSchedulerEntities.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\EF.Reverse.POCO.Core.ttinclude" />
+    <None Include="Entities\EF.Reverse.POCO.ttinclude" />
+    <None Include="Mappings\CourseSchedulerMapping.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CourseSchedulerMapping.cs</LastGenOutput>
+    </None>
+    <None Include="Mappings\EF.Reverse.POCO.Core.ttinclude" />
+    <None Include="Mappings\EF.Reverse.POCO.ttinclude" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

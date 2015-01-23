@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CourseScheduler.Data.Context;
+using CourseScheduler.Data.Entities;
 
-namespace CourseScheduler.Data
+namespace CourseScheduler.Data.Repository
 {
 	public class CourseSchedulerRepository : ICourseSchedulerRepository
 	{
@@ -15,6 +17,12 @@ namespace CourseScheduler.Data
 		public CourseSchedulerRepository(CourseSchedulerContext ctx)
 		{
 			_ctx = ctx;
+
+			//Turn off lazy loading if you are going to serialize objects
+			_ctx.Configuration.LazyLoadingEnabled = false;
+
+			//causes issues with serialization
+			_ctx.Configuration.ProxyCreationEnabled = false;			
 		}
 
 		/// <summary>
@@ -42,7 +50,7 @@ namespace CourseScheduler.Data
 		/// <returns></returns>
 		public IQueryable<Course> GetCoursesByDepartment(string departmentID)
 		{
-			return _ctx.Courses.Where(r => r.DepartmentId == departmentID);
+			return _ctx.Courses.Where(r => r.DeptNum == departmentID);
 		}
 
 		#endregion

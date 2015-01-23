@@ -6,6 +6,8 @@ namespace CourseScheduler.Website.App_Start
 	using System;
 	using System.Web;
 	using CourseScheduler.Data;
+	using CourseScheduler.Data.Context;
+	using CourseScheduler.Data.Repository;
 	using CourseScheduler.Website.Services;
 	using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 	using Ninject;
