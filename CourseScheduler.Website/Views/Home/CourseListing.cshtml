@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CourseScheduler.Data.Course>
+﻿@model IEnumerable<CourseScheduler.Data.Entities.Course>
 @{
     ViewBag.Title = "CourseListing";
 }
@@ -7,5 +7,5 @@
 
 @foreach (var course in Model)
 {
-    <div>@course.Name</div>
+    <div>@course.CourseNum</div>
 }

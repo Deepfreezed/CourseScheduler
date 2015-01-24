@@ -60,14 +60,23 @@ namespace CourseScheduler.Website.Controllers
 		}
 
 		//[Authorize]
-		public ActionResult CourseListing()
+		public ActionResult CourseListing(string programId)
 		{
-			var courses = _repo.GetCourses()
-				.OrderByDescending(c => c.CourseNum)
+			if(!string.IsNullOrEmpty(programId))
+			{
+				var courses = _repo.GetCoursesByProgram(programId);
+
+				return View(courses);
+			}
+			else
+			{
+				var courses = _repo.GetCourses()
+				.OrderBy(c => c.CourseNum)
 				.Take(25)
 				.ToList();
 
-			return View(courses);
+				return View(courses);
+			}
 		}
 
 		[Authorize(Roles="Admin")]

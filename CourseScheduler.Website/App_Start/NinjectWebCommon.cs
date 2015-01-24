@@ -5,6 +5,7 @@ namespace CourseScheduler.Website.App_Start
 {
 	using System;
 	using System.Web;
+	using System.Web.Http;
 	using CourseScheduler.Data;
 	using CourseScheduler.Data.Context;
 	using CourseScheduler.Data.Repository;
@@ -48,6 +49,11 @@ namespace CourseScheduler.Website.App_Start
 				kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
 				RegisterServices(kernel);
+
+				//Web API 1 old way
+				//GlobalConfiguration.Configuration.DependencyResolver =
+				//	new NinjectResolver(kernel);
+
 				return kernel;
 			}
 			catch

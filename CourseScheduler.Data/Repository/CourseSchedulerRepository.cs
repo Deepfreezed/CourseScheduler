@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +14,6 @@ namespace CourseScheduler.Data.Repository
 	public class CourseSchedulerRepository : ICourseSchedulerRepository
 	{
 		CourseSchedulerContext _ctx;
-
-		#region ICourseSchedulerRepository Members
 
 		public CourseSchedulerRepository(CourseSchedulerContext ctx)
 		{
@@ -48,11 +49,70 @@ namespace CourseScheduler.Data.Repository
 		/// </summary>
 		/// <param name="departmentID">The department identifier.</param>
 		/// <returns></returns>
-		public IQueryable<Course> GetCoursesByDepartment(string departmentID)
+		public IQueryable<Course> GetCoursesByDepartment(string departmentId)
 		{
-			return _ctx.Courses.Where(r => r.DeptNum == departmentID);
+			return _ctx.Courses.Where(r => r.DeptNum == departmentId);
+		}		
+
+		/// <summary>
+		/// Gets the courses by program.
+		/// </summary>
+		/// <param name="programId">The program identifier.</param>
+		/// <returns></returns>
+		public IQueryable<Course> GetCoursesByProgram(string programId)
+		{
+			return from csp in _ctx.CourseSubPrograms
+				   where csp.ProgNum == programId
+				   select csp.Course;
+			
 		}
 
-		#endregion
+		/// <summary>
+		/// Saves this instance.
+		/// </summary>
+		/// <returns></returns>
+		/// <exception cref="System.NotImplementedException"></exception>
+		public bool Save()
+		{
+			try
+			{
+				return _ctx.SaveChanges() > 0;
+			}
+			catch(Exception)
+			{
+				//TODO Log error
+				return false;
+			}
+		}
+
+		/// <summary>
+		/// Adds the course.
+		/// </summary>
+		/// <param name="newCourse">The new course.</param>
+		/// <returns></returns>
+		/// <exception cref="System.NotImplementedException"></exception>
+		public bool AddCourse(Course newCourse)
+		{
+			try
+			{
+				_ctx.Courses.Add(newCourse);
+
+				return true;
+			}
+			catch(Exception)
+			{
+				//TODO Log error
+				return false;
+			}
+		}
+		
+		/// <summary>
+		/// Gets the programs.
+		/// </summary>
+		/// <returns></returns>
+		public IQueryable<Program> GetPrograms()
+		{
+			return _ctx.Programs;
+		}
 	}
 }

@@ -10,7 +10,15 @@ namespace CourseScheduler.Data
 	public interface ICourseSchedulerRepository
 	{
 		IQueryable<Department> GetDepartments();
+
 		IQueryable<Course> GetCourses();
-		IQueryable<Course> GetCoursesByDepartment(string departmentID);
+		IQueryable<Course> GetCoursesByDepartment(string departmentId);
+		IQueryable<Course> GetCoursesByProgram(string programId);
+
+		IQueryable<Program> GetPrograms();
+
+		bool Save();
+
+		bool AddCourse(Course newCourse);
 	}
 }
