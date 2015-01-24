@@ -2,10 +2,23 @@
 @{
     ViewBag.Title = "CourseListing";
 }
-
+@section Scripts{
+    <script src="~/js/course-index.js"></script>
+}
 <h2>Course Listing</h2>
 
-@foreach (var course in Model)
-{
-    <div>@course.CourseNum</div>
-}
+<div data-ng-controller="courseIndexController">
+
+    <div class="progress progress-striped active" data-ng-show="isBusy">
+        <div class="bar" style="width: 100%;"></div>
+    </div>
+
+    <div data-ng-repeat="i in data">
+        <span>{{ i.courseNum }} | {{ i.deptNum }} | {{ i.courseOffered | number:1  }}</span>
+    </div>
+
+    @foreach(var course in Model)
+    {
+        <div>@course.CourseNum</div>
+    }
+</div>

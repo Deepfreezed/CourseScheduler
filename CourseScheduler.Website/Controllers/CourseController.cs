@@ -25,8 +25,7 @@ namespace CourseScheduler.Website.Controllers
 		public IEnumerable<Course> Get()
 		{
 			return _repo.GetCourses()
-				.OrderBy(c => c.CourseNum)
-				.Take(25);
+				.OrderBy(c => c.CourseNum);
 		}
 
 		/// <summary>

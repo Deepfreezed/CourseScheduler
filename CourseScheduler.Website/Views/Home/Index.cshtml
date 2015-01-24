@@ -4,45 +4,50 @@
 
 @*Zen Coding Snippet*@
 @*.messages>.message.row>(.title.span10>lorem5)+(.date.span2>{Feb 12 2015})+.contents.span12+.toolbar.span12+.replies.span12*@
-
-<div class="page-header" id="banner">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Janith C. Samarasekera - Web Portfolio</h1>
-            <p class="lead">Technical Expertise</p>
-        </div>
-        <div class="col-lg-12" style="padding: 15px 15px 0 15px;">
-            <div class="well sponsor">
-                <h4 style="margin-bottom: 0.4em;">ASP.NET MVC 5</h4>
-                <a href="http://www.w3schools.com/aspnet/razor_intro.asp" rel="nofollow" target="_blank">
-                    <div class="clearfix">
-                        <ul>
-                            <li>Using ASP.NET Razor markup.</li>
-                        </ul>
-                    </div>
-                </a>
-                <h4 style="margin-bottom: 0.4em;">Entity Framework 6</h4>
-                <a href="#" rel="nofollow" target="_blank">
-                    <div class="clearfix">
-                        <ul>
-                            <li>Database first approach.</li>
-                            <li>Code first approach.</li>
-                        </ul>
-                    </div>
-                </a>
-                <h4 style="margin-bottom: 0.4em;">HTML 5</h4>
-                <a href="http://www.w3schools.com/html/html5_intro.asp" rel="nofollow" target="_blank">                    
-                    <div class="clearfix">
-                    </div>
-                </a>
-                <h4 style="margin-bottom: 0.4em;">Bootstrap</h4>
-                <a href="http://bootswatch.com/spacelab/" rel="nofollow" target="_blank">                    
-                    <div class="clearfix">
-                        <ul>
-                            <li>Using fully responsive Bootswatch Spacelab template.</li>
-                        </ul>
-                    </div>
-                </a>
+@section Scripts {
+    <script src="~/js/home-index.js"></script>
+}
+<div data-ng-controller="homeIndexController">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Angular JS -->
+                <h1 class="page-header">{{ name }} - Web Portfolio</h1>
+                <p class="lead">Technical Expertise</p>
+            </div>
+            <div class="col-lg-12" style="padding: 15px 15px 0 15px;">
+                <div class="well sponsor">
+                    <h4 style="margin-bottom: 0.4em;">ASP.NET MVC 5</h4>
+                    <a href="http://www.w3schools.com/aspnet/razor_intro.asp" rel="nofollow" target="_blank">
+                        <div class="clearfix">
+                            <ul>
+                                <li>Using ASP.NET Razor markup.</li>
+                            </ul>
+                        </div>
+                    </a>
+                    <h4 style="margin-bottom: 0.4em;">Entity Framework 6</h4>
+                    <a href="#" rel="nofollow" target="_blank">
+                        <div class="clearfix">
+                            <ul>
+                                <li>Database first approach.</li>
+                                <li>Code first approach.</li>
+                            </ul>
+                        </div>
+                    </a>
+                    <h4 style="margin-bottom: 0.4em;">HTML 5</h4>
+                    <a href="http://www.w3schools.com/html/html5_intro.asp" rel="nofollow" target="_blank">
+                        <div class="clearfix">
+                        </div>
+                    </a>
+                    <h4 style="margin-bottom: 0.4em;">Bootstrap</h4>
+                    <a href="http://bootswatch.com/spacelab/" rel="nofollow" target="_blank">
+                        <div class="clearfix">
+                            <ul>
+                                <li>Using fully responsive Bootswatch Spacelab template.</li>
+                            </ul>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
