@@ -16,9 +16,11 @@ namespace CourseScheduler.Data
 		IQueryable<Course> GetCoursesByProgram(string programId);
 
 		IQueryable<Program> GetPrograms();
+		IQueryable<Program> GetProgramsIncludeDepartments();
 
 		bool Save();
 
 		bool AddCourse(Course newCourse);
+		bool AddProgram(Program newProgram);
 	}
 }

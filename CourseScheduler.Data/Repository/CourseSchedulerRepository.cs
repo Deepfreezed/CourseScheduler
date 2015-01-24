@@ -114,5 +114,29 @@ namespace CourseScheduler.Data.Repository
 		{
 			return _ctx.Programs;
 		}
+
+
+		public bool AddProgram(Program newProgram)
+		{
+			try
+			{
+				_ctx.Programs.Add(newProgram);
+
+				return true;
+			}
+			catch(Exception)
+			{
+				//TODO Log error
+				return false;
+			}
+		}
+
+
+		public IQueryable<Program> GetProgramsIncludeDepartments()
+		{
+			return _ctx.Programs
+				//.Include(p => p.SubPrograms)
+				.Include(p => p.Department);
+		}
 	}
 }

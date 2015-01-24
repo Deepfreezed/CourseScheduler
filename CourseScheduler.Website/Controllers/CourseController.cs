@@ -32,9 +32,13 @@ namespace CourseScheduler.Website.Controllers
 		/// <summary>
 		/// Save a new Course.
 		/// </summary>
+		/// <param name="departmentId">The department identifier.</param>
 		/// <param name="newCourse">The new course.</param>
-		public HttpResponseMessage Post([FromBody]Course newCourse)
+		/// <returns></returns>
+		public HttpResponseMessage Post(string departmentId, [FromBody]Course newCourse)
 		{
+			newCourse.DeptNum = departmentId;
+
 			if(_repo.AddCourse(newCourse) && _repo.Save())
 			{
 				return Request.CreateResponse(HttpStatusCode.Created, newCourse);

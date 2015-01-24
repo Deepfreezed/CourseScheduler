@@ -24,13 +24,21 @@ namespace CourseScheduler.Website.Controllers
 		/// Gets Program.
 		/// </summary>
 		/// <returns></returns>
-		public IEnumerable<Program> Get()
+		public IEnumerable<Program> Get(bool includeDepartments = false)
 		{
-			return _repo.GetPrograms()
-				//.Include(p => p.SubPrograms)
-				.Include(p => p.Department)
+
+			if(includeDepartments)
+			{
+				return _repo.GetProgramsIncludeDepartments()
 				.OrderBy(p => p.ProgNum)
 				.Take(25);
+			}
+			else
+			{
+				return _repo.GetPrograms()
+				.OrderBy(p => p.ProgNum)
+				.Take(25);
+			}			
 		}
 
 		/// <summary>
@@ -40,6 +48,16 @@ namespace CourseScheduler.Website.Controllers
 		public IEnumerable<Course> Get(string id)
 		{
 			return _repo.GetCoursesByProgram(id);
-		}		
+		}
+
+		public HttpResponseMessage Post([FromBody]Program newProgram)
+		{
+			if(_repo.AddProgram(newProgram) && _repo.Save())
+			{
+				return Request.CreateResponse(HttpStatusCode.Created, newProgram);
+			}
+
+			return Request.CreateResponse(HttpStatusCode.BadRequest);
+		}
     }
 }
