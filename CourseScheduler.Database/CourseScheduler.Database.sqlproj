@@ -107,6 +107,7 @@
     <None Include="ReferenceData\GOAL_AREA.MERGE.DATA.sql" />
     <None Include="ReferenceData\GEN_ED_COURSE.MERGE.DATA.sql" />
     <None Include="ReferenceData\TEACHER.MERGE.DATA.sql" />
+    <None Include="CourseScheduler_LocalDB.Database.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="ReferenceData\Script.PostDeployment1.sql" />

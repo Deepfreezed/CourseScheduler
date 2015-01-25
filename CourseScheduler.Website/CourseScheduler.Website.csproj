@@ -209,6 +209,14 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-CourseScheduler.mdf" />
+    <Content Include="App_Data\aspnet-CourseScheduler_log.ldf">
+      <DependentUpon>aspnet-CourseScheduler.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\CourseScheduler.mdf" />
+    <Content Include="App_Data\CourseScheduler_log.ldf">
+      <DependentUpon>CourseScheduler.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1324,7 +1332,9 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1382,9 +1392,7 @@
     <Content Include="Views\Home\CourseListing.cshtml" />
     <Content Include="Scripts\version.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
