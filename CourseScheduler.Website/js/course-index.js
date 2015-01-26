@@ -1,6 +1,16 @@
-﻿var app = angular.module("courseScheduler", []);
+﻿//course-index.js
+var module = angular.module("courseIndex", []);
 
-app.controller("courseIndexController", function ($scope, $http) {
+module.config(function ($routeProvider) {
+    $routeProvider.when("/", {
+        controller: "courseController",
+        templateUrl: "/templates/courseView.html"
+    });
+
+    $routeProvider.otherwise({ redirectTo: "/"});
+});
+
+module.controller("courseController", function ($scope, $http) {
     $scope.data = [];
     $scope.isBusy = true;
 

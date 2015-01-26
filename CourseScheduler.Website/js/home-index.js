@@ -1,7 +1,16 @@
 ﻿// home-index.js
-var app = angular.module("courseScheduler", []);
- 
-app.controller("homeIndexController", function ($scope) {
+var module = angular.module("homeIndex", ["ngRoute"]);
+
+module.config(function ($routeProvider) {
+    $routeProvider.when("/", {
+        controller: "homeController",
+        templateUrl: "/templates/homeView.html"
+    });
+
+    $routeProvider.otherwise({ redirectTo: "/" });
+});
+
+module.controller("homeController", function ($scope) {
     $scope.name = "Janith C. Samarasekera";
     $scope.data = [
         {
